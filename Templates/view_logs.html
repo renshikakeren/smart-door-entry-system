@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Access Logs</h2>
+
+        <!-- Filter Box -->
+        <div class="filter-box">
+            <h3>Filter Options</h3>
+            <form method="GET" action="{{ url_for('view_logs') }}">
+                <input type="text" name="person" placeholder="Filter by Person" value="{{ request.args.get('person', '') }}">
+                
+                <input type="date" name="date" value="{{ request.args.get('date', '') }}">
+
+                <select name="password_status">
+                    <option value="">Password Status</option>
+                    <option value="Correct" {% if request.args.get('password_status') == 'Correct' %}selected{% endif %}>Correct</option>
+                    <option value="Incorrect" {% if request.args.get('password_status') == 'Incorrect' %}selected{% endif %}>Incorrect</option>
+                </select>
+
+                <select name="face_status">
+                    <option value="">Face Recognition</option>
+                    <option value="Recognized" {% if request.args.get('face_status') == 'Recognized' %}selected{% endif %}>Recognized</option>
+                    <option value="Not Recognized" {% if request.args.get('face_status') == 'Not Recognized' %}selected{% endif %}>Not Recognized</option>
+                </select>
+
+                <label>
+                    <input type="checkbox" name="door_opened" value="Yes" {% if request.args.get('door_opened') == 'Yes' %}checked{% endif %}> Door Opened (Yes)
+                </label>
+
+                <button type="submit">Apply Filters</button>
+                <a href="{{ url_for('view_logs') }}"><button type="button">Reset</button></a>
+            </form>
+        </div>
+
+        <!-- Table Box -->
+        <div class="table-box">
+            <h3>Access Logs</h3>
+            <div class="table-container">
+                <table id="logs-table">
+                    <thead>
+                        <tr>
+                            <th>Person</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Password Status</th>
+                            <th>Face Recognition</th>
+                            <th>Door Opened</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in logs %}
+                        <tr>
+                            <td>{{ log["Person"] }}</td>
+                            <td>{{ log["Date"] }}</td>
+                            <td>{{ log["Time"] }}</td>
+                            <td>{{ log["Password Status"] }}</td>
+                            <td>{{ log["Face Recognition Status"] }}</td>
+                            <td>{{ log["Door Opened"] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

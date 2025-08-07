@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Access Notification</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ccc;
+            overflow: hidden;
+        }
+        .wave-container {
+            position: relative;
+            background: linear-gradient(90deg, #4169E1, #008080);
+            padding: 40px 20px 60px;
+        }
+        .wave-svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 0;
+        }
+        .header-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+        .gold-line {
+            height: 4px;
+            background-color: #FFD700;
+            width: 80%;
+            margin: 15px auto 0;
+            position: relative;
+            z-index: 1;
+            border-radius: 2px;
+        }
+        .img-center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .icon-button {
+            display: inline-block;
+            background: #eee;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 10px;
+            transition: transform 0.2s ease;
+        }
+        .icon-button:hover {
+            transform: scale(1.1);
+            background: #ddd;
+        }
+        .icon-button img {
+            width: 30px;
+            height: 30px;
+        }
+        .footer {
+            background: linear-gradient(90deg, #008080, #4169E1);
+            padding: 50px 20px 30px;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+        }
+        .footer svg {
+            position: absolute;
+            top: -80px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+        }
+        .social-icons img {
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        .unsubscribe {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wave-container">
+            <div class="header-text">
+                <img src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="✅" width="24" height="24">
+                Access Granted
+            </div>
+            <div class="gold-line"></div>
+            <svg class="wave-svg" viewBox="0 0 1440 150" preserveAspectRatio="none">
+                <path fill="#4169E1" d="M0,64L80,90.7C160,117,320,171,480,181.3C640,192,800,160,960,133.3C1120,107,1280,85,1360,74.7L1440,64L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <p style="padding: 20px;">
+            Recognized individual <strong>{{ person_name }}</strong> was detected at the door and granted access.
+        </p>
+
+        <img src="cid:image1" alt="Recognized Face" class="img-center">
+
+        <div class="actions">
+            <a href="{{ mark_unknown_link }}" class="icon-button" title="Mark as Unknown">
+                <img src="https://img.icons8.com/emoji/48/thinking-face.png" alt="Mark Unknown">
+            </a>
+            <a href="http://localhost:5000/live?token=secure123" class="icon-button" title="View Live Feed">
+                <img src="https://img.icons8.com/emoji/48/video-camera-emoji.png" alt="Live Feed">
+            </a>
+        </div>
+
+        <div class="footer">
+            <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+                <path fill="#008080" d="M0,64L80,90.7C160,117,320,171,480,181.3C640,192,800,160,960,133.3C1120,107,1280,85,1360,74.7L1440,64L1440,0L0,0Z"></path>
+            </svg>
+            📧 contact@smartlock.com | 📞 +1-234-567-8901<br>
+            <div class="social-icons">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/20/FFD700/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/20/FFD700/twitter.png" alt="Twitter"></a>
+            </div>
+            <div class="unsubscribe">
+                <a href="#" style="color: #FFD700; font-style: italic;">Unsubscribe</a>
+            </div>
+            <br><strong>Powered by RENZY</strong> © 2025
+        </div>
+    </div>
+</body>
+</html>
