@@ -1,4 +1,3 @@
-# smart-door-entry-system
 AI-Powered Smart Door Entry System
 Project Overview
 This is a secure, AI-powered smart door access control system developed with Python and the Flask framework. The system uses computer vision and machine learning to perform real-time facial recognition, providing a robust and intelligent security solution for homes or offices. It features a multi-layered authentication process, proactive email alerts, and a web-based logging dashboard for comprehensive monitoring.
@@ -36,24 +35,15 @@ OpenCV (cv2): For capturing and processing camera images.
 Setup and Installation
 Follow these steps to get the project up and running on your local machine.
 
-Clone the repository:
+Download the project files:
+Download the project files from GitHub and extract them to a folder on your computer.
 
-Bash
-
-git clone https://github.com/renshikakeren/smart-door-entry-system.git
-cd smart-door-entry-system
-Create a virtual environment (recommended):
-
-Bash
-
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 Install the required libraries:
-
-Bash
+Open a command prompt or terminal, navigate to the project folder, and run:
 
 pip install -r requirements.txt
-(Note: You will need to create a requirements.txt file by running pip freeze > requirements.txt after installing all dependencies.)
+
+(Note: You may need to create a requirements.txt file by running pip freeze > requirements.txt after installing all dependencies.)
 
 Set up email credentials:
 
@@ -70,9 +60,9 @@ Add images of authorized individuals to this folder. The DeepFace library will u
 Update the ALLOWED_FACES_MAPPING dictionary in app.py to map the image filenames to the person's name (e.g., "Allowed_faces/john_doe.jpg": "John Doe").
 
 How to Run
-After completing the setup, run the Flask application:
-
-Bash
+After completing the setup, run the Flask application from your command prompt or terminal:
 
 python app.py
+
 The application will launch and open a browser window to http://127.0.0.1:5000/.
+
